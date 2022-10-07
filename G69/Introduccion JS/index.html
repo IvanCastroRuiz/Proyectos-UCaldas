@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preload" href="css/normalize.css" as="style"> <!--Para que el sitio web se comporte mas rapido-->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="preload" href="css/styles.css" as="style">
+        <link href="css/styles.css" rel="stylesheet">
+
+
+        <title>Introduccion JS</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="titulo">Introduccion JS</h1>
+        </header>
+
+        <!-- Codigo Formulario -->
+
+        <main main-edicion class="contenedor sombra">   
+            <section>   
+                <h2>Contactos</h2>
+    
+                <form
+                    class="formulario"
+                >
+                    <fieldset>
+                        <legend>Contactenos llenado todos los campos</legend>
+                        <div class="contenedor-campos">
+                            <div class="campos">
+                                <label>Nombre</label>
+                                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" class="input-text">
+                            </div>
+                            <div class="campos">
+                                <label>Telefono</label>
+                                <input id="telefono" type="tel" placeholder="Tu telefono" class="input-text">
+                            </div>
+                            <div class="campos">
+                                <label>Correo</label>
+                                <input id="correo" type="email" placeholder="Tu Email" class="input-text">
+                            </div>
+                            <div class="campos">
+                                <label>Mensaje</label>
+                                <textarea id="mensaje" placeholder = "Tu mensaje" name="mensaje" class="input-text"></textarea>
+                            </div>
+                        </div>  
+                        
+                        <div id="alerta">
+                            
+                        </div>    
+
+                        <div class="alinear-derecha flex">
+                            <input class="boton w-100" type="submit" value="Enviar">
+                        </div>
+                    </fieldset>
+
+                    <div id="proceso">
+                
+                    </div>
+
+                    <!--  -->
+                </form>
+    
+            </section>
+        </main>
+
+
+
+        <footer class="fooster">
+            <p>Todos los derechos reservados.</p>
+        </footer>
+
+
+
+        <script src="./js/index.js" type="text/javascript"></script>
+    </body>
+</html>
