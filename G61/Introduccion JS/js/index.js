@@ -10,14 +10,35 @@ let contactos = [];
 // Objectos Literales (diccionario)
 let datos = {};
 
-
 let formulario = document.querySelector(".formulario");
 
 // Funciones
 
+function spinner(){
+
+    let contenedorSpinner = document.querySelector("#contenedor-spinner");
+
+    contenedorSpinner.innerHTML = `
+                                    <div class="spinner">
+                                        <div class="rect1"></div>
+                                        <div class="rect2"></div>
+                                        <div class="rect3"></div>
+                                        <div class="rect4"></div>
+                                        <div class="rect5"></div>
+                                    </div> 
+                                `;  
+
+    let spinner = document.querySelector(".spinner");                            
+    setTimeout(() => {
+        spinner.remove();
+        mostrarMensaje("Proceso exitoso, pronto te contactaremos");
+    }, 3000);
+
+};
+
 const mostrarMensaje = (mensaje, error=null) => {
 
-    const alerta = document.createElement('p');
+    const alerta =  document.createElement('p');
 
     alerta.textContent = mensaje;
 
@@ -52,7 +73,7 @@ const validarFormulario = (e) => {
     }
 
     // Paso la validacion
-    mostrarMensaje("Enviando a la bases de datos");
+    
     datos = {
         "cedula": cedula,
         "nombre": nombre, 
@@ -66,12 +87,12 @@ const validarFormulario = (e) => {
     
     console.log(contactos);  
 
+    spinner();
+
     formulario.reset();
 }
 
-// Escuchador de eventos
-formulario.addEventListener("submit", validarFormulario);
-
 // Programa Principal
- 
- 
+
+// Escuchador de eventos 
+formulario.addEventListener("submit", validarFormulario);
