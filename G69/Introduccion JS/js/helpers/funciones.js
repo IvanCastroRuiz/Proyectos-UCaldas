@@ -1,7 +1,7 @@
 
 // Bloque de Constantes y Variables
-
-let contactos = []; // Vector
+import { contactos } from '../index.js';
+//let contactos = []; // Vector
 let datos = {}; // Objeto literal (diccionario)
 
 let formulario = document.querySelector('.formulario');
@@ -21,6 +21,11 @@ const generarId = () =>{
     const randon = Math.random().toString(36).substr(2);
     const fecha = Date.now().toString(36);
     return randon + fecha;
+};
+
+const sincronizarStorage = (contactos) => {
+    localStorage.setItem('contactos', JSON.stringify(contactos));
+    //location.reload();
 };
 
 export const mostrarSpinner = (mensaje) => {
@@ -109,6 +114,9 @@ export const validarFormulario = (e) => {
                     "mensaje":mensaje
                 };
                 contactos.push(datos);
+
+                sincronizarStorage(contactos);
+
                 console.log(contactos);
                 formulario.reset();
         } else if (result.isDenied) {
@@ -119,8 +127,8 @@ export const validarFormulario = (e) => {
     // fin sweetalert2
 };
 
-export const listarContactos = () =>{
-
+export const listarContactos = (e) =>{
+    e.preventDefault();
 
     limpiarHTML("#section-form");
 
@@ -188,7 +196,50 @@ export const listarContactos = () =>{
                                             `;
         }
     });
+};
 
+export const mostrarFormulario = (e) =>{
+    e.preventDefault();
+    
+    limpiarHTML("#section-form");   
+    
+    const forContacto = document.querySelector("#section-form");
+    forContacto.innerHTML = `
+                            <form
+                                class="formulario"
+                            >
+                                <fieldset>
+                                    <legend>Contactenos llenado todos los campos</legend>
+                                    <div class="contenedor-campos">
+                                        <div class="campos">
+                                            <label>Nombre</label>
+                                            <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" class="input-text">
+                                        </div>
+                                        <div class="campos">
+                                            <label>Telefono</label>
+                                            <input id="telefono" type="tel" placeholder="Tu telefono" class="input-text">
+                                        </div>
+                                        <div class="campos">
+                                            <label>Correo</label>
+                                            <input id="correo" type="email" placeholder="Tu Email" class="input-text">
+                                        </div>
+                                        <div class="campos">
+                                            <label>Mensaje</label>
+                                            <textarea id="mensaje" placeholder = "Tu mensaje" name="mensaje" class="input-text"></textarea>
+                                        </div>
+                                    </div>  
+                                    
+                                    <div id="contenedor-spinner">
 
+                                    </div>    
+
+                                    <div class="alinear-derecha flex">
+                                        <input class="boton w-100" type="submit" value="Enviar">
+                                    </div>
+
+                                </fieldset>
+                                <!--  -->
+                            </form>
+                                `;
 
 };

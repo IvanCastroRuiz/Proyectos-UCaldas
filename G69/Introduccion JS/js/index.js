@@ -3,20 +3,34 @@ console.log("Conectado");
 
 import {
         validarFormulario, 
-        listarContactos
+        listarContactos,
+        mostrarFormulario
        } 
 from '../js/helpers/funciones.js'
 
 
 // Bloque Variables globales y contstantes
 
+export let contactos = [];
+
 let formulario = document.querySelector('.formulario');
-let listaContacto = document.querySelector('#lista-contacto');
+let enlaceContactos = document.querySelector('#lista-contacto');
+//let enlaceFormulario = document.querySelector('#formulario-inicio');
 
 // Bloque Funciones
 
 // Bloque Programa Principal
 
 // Escuchador de evento
-formulario.addEventListener("submit", validarFormulario);
-listaContacto.addEventListener("click", listarContactos );
+
+
+document.addEventListener('DOMContentLoaded', () =>{
+
+        contactos = JSON.parse( localStorage.getItem('contactos') ) || [];
+
+        formulario.addEventListener("submit", validarFormulario);
+        enlaceContactos.addEventListener("click", listarContactos );
+        //enlaceFormulario.addEventListener("click", mostrarFormulario);
+});
+
+

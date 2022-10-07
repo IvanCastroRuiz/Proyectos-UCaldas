@@ -1,0 +1,3 @@
+html, body, main{height: 100%;}
+main.active{background-color: rgb(231, 231, 6);}
+main{background-color: gray;}
