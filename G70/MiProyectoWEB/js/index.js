@@ -1,11 +1,13 @@
 console.log("Connected");
 
+// Importamos librerias o archivos JS
 
-let x = Math.random();
-console.log(x);
 
-let titulo = document.querySelector('#titulo');
+// Contantes y variables
 
-console.log(titulo);
+let formulario = document.querySelector(".formulario");
 
-titulo.innerHTML = "Hola Mundo JS";
+// Funciones
+
+
+// Programa Principal
