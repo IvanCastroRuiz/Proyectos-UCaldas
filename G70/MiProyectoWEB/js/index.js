@@ -16,4 +16,13 @@ export let formulario = document.querySelector(".formulario");
 
 // Programa Principal
 // Escuchador de eventos
-formulario.addEventListener("submit", validarFormulario );
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    contactos = JSON.parse(localStorage.getItem("contactos")) || [];
+    console.log(contactos);
+    formulario.addEventListener("submit", validarFormulario );
+
+});

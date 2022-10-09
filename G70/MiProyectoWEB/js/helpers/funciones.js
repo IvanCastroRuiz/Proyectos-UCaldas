@@ -11,6 +11,18 @@ let datos = {}; // Objeto Literal
 
 // Bloque funciones
 
+const generarId = () =>{
+    const randon = Math.random().toString(36).substr(2);
+    const fecha = Date.now().toString(36);
+    return randon + fecha;
+};
+
+const sincronizarStorage = (contactos) =>{
+
+    localStorage.setItem("contactos", JSON.stringify(contactos));
+
+};
+
 const mostrarSpinner = () =>{   
     let contenedorSpinner = document.querySelector('#contenedor-spinner');
     contenedorSpinner.innerHTML = `
@@ -85,16 +97,16 @@ export const validarFormulario = (e) =>{
 
             // Guardar información
             datos = {
+                "id": generarId(),
                 "nombre": nombre,
                 "telefono": telefono,
                 "correo": correo,
                 "mensaje":mensaje
             }
-
             contactos.push(datos);
-            formulario.reset();
+            sincronizarStorage(contactos);
 
-            console.log(contactos);
+            formulario.reset();
 
             mostrarSpinner();
 
