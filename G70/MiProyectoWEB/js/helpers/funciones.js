@@ -11,6 +11,29 @@ let datos = {}; // Objeto Literal
 
 // Bloque funciones
 
+const mostrarSpinner = () =>{   
+    let contenedorSpinner = document.querySelector('#contenedor-spinner');
+    contenedorSpinner.innerHTML = `
+                                    <div class="sk-cube-grid">
+                                        <div class="sk-cube sk-cube1"></div>
+                                        <div class="sk-cube sk-cube2"></div>
+                                        <div class="sk-cube sk-cube3"></div>
+                                        <div class="sk-cube sk-cube4"></div>
+                                        <div class="sk-cube sk-cube5"></div>
+                                        <div class="sk-cube sk-cube6"></div>
+                                        <div class="sk-cube sk-cube7"></div>
+                                        <div class="sk-cube sk-cube8"></div>
+                                        <div class="sk-cube sk-cube9"></div>
+                                    </div>
+                                  `;
+    let spinner = document.querySelector('.sk-cube-grid');
+    setTimeout(() => {
+        spinner.remove();
+        mostrarMensaje("Registro exitoso, pronto te contactaremos");
+    },3000);
+
+};
+
 const mostrarMensaje = (mensaje, error=null) => {
     
     let alerta = document.createElement("p");
@@ -47,18 +70,36 @@ export const validarFormulario = (e) =>{
     }
 
     // Paso la validacion
-    mostrarMensaje("Enviando la información a la Base de datos");
 
-    datos = {
-        "nombre": nombre,
-        "telefono": telefono,
-        "correo": correo,
-        "mensaje":mensaje
-    }
 
-    console.log(datos);
-    contactos.push(datos);
+    Swal.fire({
+        title: 'Estas seguro de guardar?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        denyButtonText: `No Guardar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Guardado!', '', 'success')
 
-    console.log(contactos);
-    formulario.reset();
+            // Guardar información
+            datos = {
+                "nombre": nombre,
+                "telefono": telefono,
+                "correo": correo,
+                "mensaje":mensaje
+            }
+
+            contactos.push(datos);
+            formulario.reset();
+
+            console.log(contactos);
+
+            mostrarSpinner();
+
+        } else if (result.isDenied) {
+          Swal.fire('Informacion no registrada', '', 'info')
+        }
+    })    
 };
