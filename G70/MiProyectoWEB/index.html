@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/tailwind.min.css">
         <link rel="preload" href="css/styles.css" as="style">
         <link href="css/styles.css" rel="stylesheet">
 
@@ -18,13 +19,20 @@
     </head>
     <body>
         <header>
-            <h1 id="titulo">Introduction JS</h1>
+            <h1 class="titulo">Sistema Administracion de Contactos <span>Desarrollo WEB</h1></span></h1>
         </header>
+        <!--configuracion de la barra de navegacion-->
+        <div class="nav-bg">
+            <nav class="navegacion-principal contenedor">
+                <a href="index.html">Inicio</a>
+                <a id="lista-contacto" href="#">Lista Contactos</a>
+            </nav>
+        </div>
 
         <!-- Inicio Formulario -->
 
         <main main-edicion class="contenedor sombra">
-            <section>   
+            <section id="form-contacto">   
                 <form action="" 
                       class="formulario"
                 >

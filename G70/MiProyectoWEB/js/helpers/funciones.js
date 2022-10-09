@@ -115,3 +115,14 @@ export const validarFormulario = (e) =>{
         }
     })    
 };
+
+export const listadoContactos = () => {
+
+
+    // Buscar el formulario y borrarlo
+
+    let seccion = document.querySelector('#form-contacto');
+
+    console.log(seccion);
+
+};
