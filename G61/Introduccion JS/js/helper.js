@@ -2,12 +2,21 @@
 // Bloque Variables y Constantes
 
 // Trabajando con vectores
-let contactos = [];
+
 // Objectos Literales (diccionario)
+
+import { contactos } from './index.js';
+
 let datos = {}
 let formulario = document.querySelector(".formulario");
 
 // Bloque Funciones
+
+const sincronizarStorage = (contactos) => {
+    // Convierte una estructura de datos a cadena (stringify)
+    // setItem guarda la información en el localStorage
+    localStorage.setItem("contactos", JSON.stringify(contactos));
+};
 
 const generarId = () =>{
     const randon = Math.random().toString(36).substr(2);
@@ -15,7 +24,7 @@ const generarId = () =>{
     return randon + fecha;
 };
 
-export const limpiarHTML = (listado) => {
+const limpiarHTML = (listado) => {
     const listadoContactos = document.querySelector(`${listado}`);
     console.log(listadoContactos);
     if(listadoContactos){
@@ -23,6 +32,95 @@ export const limpiarHTML = (listado) => {
             listadoContactos.removeChild(listadoContactos.firstChild);
         };
     };
+};
+
+function spinner(){
+    let contenedorSpinner = document.querySelector("#contenedor-spinner");
+    contenedorSpinner.innerHTML = `
+                                    <div class="spinner">
+                                        <div class="rect1"></div>
+                                        <div class="rect2"></div>
+                                        <div class="rect3"></div>
+                                        <div class="rect4"></div>
+                                        <div class="rect5"></div>
+                                    </div> 
+                                `;  
+    let spinner = document.querySelector(".spinner");                            
+    setTimeout(() => {
+        spinner.remove();
+        mostrarMensaje("Proceso exitoso, pronto te contactaremos");
+    }, 3000);
+};
+
+const mostrarMensaje = (mensaje, error=null) => {
+
+    const alerta =  document.createElement('p');
+
+    alerta.textContent = mensaje;
+
+    if (error) {
+        alerta.classList.add('error');
+    }else{
+        alerta.classList.add('correcto');
+    }
+
+    formulario.appendChild(alerta);
+
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
+
+};
+
+// Funcion Flecha
+export const validarFormulario = (e) => {
+    e.preventDefault();
+    
+    let cedula = document.querySelector("#cedula").value;
+    let nombre = document.querySelector("#nombre").value;
+    let telefono = document.querySelector("#telefono").value;
+    let correo = document.querySelector("#correo").value;
+    let mensaje = document.querySelector("#mensaje").value;
+
+       
+    if([cedula,nombre,telefono,mensaje,correo].includes("")){
+        mostrarMensaje("Todos los campos son obligatorios", true);
+        return
+    }
+
+    // Paso la validacion
+    // sweetalert2
+    Swal.fire({
+        title: 'Estas seguro de guardar?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        denyButtonText: `No guardar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Guardado!', '', 'success')
+
+            datos = {
+                "id": generarId(),
+                "cedula": cedula,
+                "nombre": nombre, 
+                "telefono": telefono, 
+                "correo": correo,
+                "mensaje":mensaje
+            }
+    
+            contactos.push(datos); // metodo push para insertar elementos en un vector
+            sincronizarStorage(contactos);
+            spinner();
+            formulario.reset();
+        } else if (result.isDenied) {
+          Swal.fire('Cambios no realizado', '', 'info')
+        }
+      })
+    // Fin sweetalert2
+
+    
 };
 
 export const listaContactos = () =>{
@@ -98,93 +196,4 @@ export const listaContactos = () =>{
 
     // Fin Listar Contactos
 
-};
-
-export function spinner(){
-    let contenedorSpinner = document.querySelector("#contenedor-spinner");
-    contenedorSpinner.innerHTML = `
-                                    <div class="spinner">
-                                        <div class="rect1"></div>
-                                        <div class="rect2"></div>
-                                        <div class="rect3"></div>
-                                        <div class="rect4"></div>
-                                        <div class="rect5"></div>
-                                    </div> 
-                                `;  
-    let spinner = document.querySelector(".spinner");                            
-    setTimeout(() => {
-        spinner.remove();
-        mostrarMensaje("Proceso exitoso, pronto te contactaremos");
-    }, 3000);
-};
-
-export const mostrarMensaje = (mensaje, error=null) => {
-
-    const alerta =  document.createElement('p');
-
-    alerta.textContent = mensaje;
-
-    if (error) {
-        alerta.classList.add('error');
-    }else{
-        alerta.classList.add('correcto');
-    }
-
-    formulario.appendChild(alerta);
-
-    setTimeout(() => {
-        alerta.remove();
-    }, 3000);
-
-};
-
-// Funcion Flecha
-export const validarFormulario = (e) => {
-    e.preventDefault();
-    
-    let cedula = document.querySelector("#cedula").value;
-    let nombre = document.querySelector("#nombre").value;
-    let telefono = document.querySelector("#telefono").value;
-    let correo = document.querySelector("#correo").value;
-    let mensaje = document.querySelector("#mensaje").value;
-
-       
-    if([cedula,nombre,telefono,mensaje,correo].includes("")){
-        mostrarMensaje("Todos los campos son obligatorios", true);
-        return
-    }
-
-    // Paso la validacion
-    // sweetalert2
-    Swal.fire({
-        title: 'Estas seguro de guardar?',
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Guardar',
-        denyButtonText: `No guardar`,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          Swal.fire('Guardado!', '', 'success')
-
-            datos = {
-                "id": generarId(),
-                "cedula": cedula,
-                "nombre": nombre, 
-                "telefono": telefono, 
-                "correo": correo,
-                "mensaje":mensaje
-            }
-    
-            contactos.push(datos); // metodo push para insertar elementos en un vector
-            console.log(contactos);
-            spinner();
-            formulario.reset();
-        } else if (result.isDenied) {
-          Swal.fire('Cambios no realizado', '', 'info')
-        }
-      })
-    // Fin sweetalert2
-
-    
 };

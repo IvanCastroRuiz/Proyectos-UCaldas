@@ -1,0 +1,11 @@
+{
+    "contacto" : {
+                    "nombre": "Ivan Castro Ruiz",
+                    "dirreccion": "Via a la Playa - Puerto Colombia",
+                    "telefonos": [
+                            {"personal": 3003162985},
+                            {"laboral": 3611545}
+                        ],
+                    "estadocivil": true
+                }
+}

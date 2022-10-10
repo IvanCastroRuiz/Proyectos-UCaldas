@@ -3,12 +3,11 @@ console.log("Starting");
 // Bloque Import (librerias - otros archivos JS)
 
 import {
-        limpiarHTML, 
         listaContactos,
-        spinner,
-        mostrarMensaje,
         validarFormulario
     } from "../js/helper.js";
+
+export let contactos = [];
 
 // Bloque Variables y Constantes
 
@@ -20,5 +19,14 @@ let enlaceListaContacto = document.querySelector("#lista-contacto");
 // Bloque Programa Principal
 
 // Escuchador de eventos 
-formulario.addEventListener("submit", validarFormulario);
-enlaceListaContacto.addEventListener("click", listaContactos);
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Consultamos si en locaStorage hay contactos (getItem)
+    // Convierte una cadena de texto a una estructura de datos valida en JS (parse)
+    contactos = JSON.parse(localStorage.getItem("contactos")) || [];
+    console.log(contactos);
+
+    formulario.addEventListener("submit", validarFormulario);
+    enlaceListaContacto.addEventListener("click", listaContactos);
+});

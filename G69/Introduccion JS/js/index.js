@@ -3,8 +3,7 @@ console.log("Conectado");
 
 import {
         validarFormulario, 
-        listarContactos,
-        mostrarFormulario
+        listarContactos
        } 
 from '../js/helpers/funciones.js'
 
@@ -27,10 +26,12 @@ let enlaceContactos = document.querySelector('#lista-contacto');
 document.addEventListener('DOMContentLoaded', () =>{
 
         contactos = JSON.parse( localStorage.getItem('contactos') ) || [];
-
+        console.log(contactos);
+        console.log(contactos[0]);
+        console.log(contactos[0].nombre);
+        console.log(contactos[0]["telefono"]);
         formulario.addEventListener("submit", validarFormulario);
         enlaceContactos.addEventListener("click", listarContactos );
-        //enlaceFormulario.addEventListener("click", mostrarFormulario);
 });
 
 
