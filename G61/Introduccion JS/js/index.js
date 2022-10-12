@@ -27,6 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
     contactos = JSON.parse(localStorage.getItem("contactos")) || [];
     console.log(contactos);
 
+
+
+    // Aclaraciones
+
+    const persona = {
+        nombre: "IVAN",
+        edad: 43,
+        telefonos: [
+            {personal: 3003162985, nombre: "IVAN"},
+            {trabajo: 0000000},
+            {madre: 3124545}
+        ],
+        familia: [
+            {
+                madre: "Saya",
+                telefono: 3013214564,
+                dirreccion: "dire"
+            }
+        ]
+    };
+
+    persona.estadoCivil = true;
+    persona["dirreccion"] = "Calle la playa km via a puerto";
+    console.log(persona.telefonos[0].nombre);
+    console.log(persona.telefonos[0].personal);
+
+    // Fin Aclaraciones
+
+
     formulario.addEventListener("submit", validarFormulario);
     enlaceListaContacto.addEventListener("click", listaContactos);
 });
