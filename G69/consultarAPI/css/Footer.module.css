@@ -1,0 +1,45 @@
+:root {
+    --primary: #e99401;
+    --negro: #262626;
+    --blanco: #FFF;
+    --fuente-principal: 'Outfit', sans-serif;
+  }
+
+.footer{
+    background-color: var(--negro);
+    padding: 5rem 0;
+    margin-top: 5rem;
+}
+@media (min-width: 768px){
+    .contenido-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.navegacion-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media(min-width: 768px){
+    .navegacion-footer{
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+.navegacion-footer a{
+    font-size: 2.8rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 700
+}
+.navegacion-footer a:hover {
+    color: var(--primary);
+}
+.copyright{
+    font-size: 2.8rem;
+    color: var(--blanco);
+    font-weight: 700;
+    text-align: center;
+}
+
