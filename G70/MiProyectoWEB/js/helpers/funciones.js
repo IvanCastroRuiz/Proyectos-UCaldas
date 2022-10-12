@@ -8,6 +8,12 @@ import {
         } from "../index.js"; 
 
 let datos = {}; // Objeto Literal
+// datos.nombre = "nombre";
+// console.log(datos);
+
+// const vec = [];
+// vec[0] = 15;
+// console.log(vec);
 
 // Bloque funciones
 
@@ -199,3 +205,4 @@ export const listadoContactos = () => {
 
 
 };
+
