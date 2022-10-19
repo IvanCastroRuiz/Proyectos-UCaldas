@@ -19,6 +19,7 @@
 .listado-contenido h3{
     font-size: 3rem;
     text-transform: uppercase;
+    text-align: center
 }
 .listado-descripcion {
     display: -webkit-box;

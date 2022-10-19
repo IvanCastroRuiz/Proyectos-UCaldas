@@ -3,8 +3,6 @@ console.log("Starting");
 
 // Bloq Import
 
-
-
 // Bloq variables y constantes
 
 const listarGuitarras = (resultado) => {
@@ -33,7 +31,6 @@ const listarGuitarras = (resultado) => {
                                     `;
     });
 };
-
 
 // Bloq Funciones
 const consultarApi = async () => {

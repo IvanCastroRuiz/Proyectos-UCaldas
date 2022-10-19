@@ -8,17 +8,17 @@ console.log("Starting");
 
 // funcion Asyncrona
 
-const listarApi = (id, titulo, contenido, resumen, url) => {
+const listarApi = (id, nombre, descripcion, url, precio) => {
 
     let producto = document.querySelector(".listado");
 
     producto.innerHTML += `
                                         <div class="listado-guitarra">
-                                            <img layout='responsive' width="100" height="180" src="${url}" alt="${titulo}/>
+                                            <img layout='responsive' width="100" height="180" src="${url}" alt="${nombre}">
                                             <div class="listado-contenido">
-                                                <h3>${titulo}</h3>
-                                                <p class="listado-descripcion">${resumen}</p>
-                                                <p class="listado-precio">$</p>
+                                                <h3>${nombre}</h3>
+                                                <p class="listado-descripcion">${descripcion}</p>
+                                                <p class="listado-precio">$${precio}</p>
                                                     <a class="listado-enlace" href="${url}">
                                                         Ver Producto
                                                     </a>
@@ -31,15 +31,15 @@ const consultarApi = async () =>{
 
     try {
 
-        let respuesta =  await fetch("https://whispering-wildwood-03076.herokuapp.com/blogs");
+        let respuesta =  await fetch("https://whispering-wildwood-03076.herokuapp.com/guitarras");
         const resultado = await respuesta.json();
         console.log(resultado);
 
         resultado.forEach( (articulo) => { 
             // Destructurar un Objeto
-            const {_id, titulo, contenido, resumen, imagen} = articulo;
+            const {_id, nombre, descripcion, imagen, precio} = articulo;
             const { url } = imagen;
-            listarApi(_id, titulo, contenido, resumen, url);
+            listarApi(_id, nombre, descripcion, url, precio);
         
         });
 
