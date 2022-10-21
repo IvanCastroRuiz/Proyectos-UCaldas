@@ -8,6 +8,8 @@ import '../src/assets/css/App.css'
 import Header from './components/Header';
 import Navegacion from './components/Navegacion';
 import Vite from './components/Vite';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -20,14 +22,13 @@ function App() {
       <Header
         count={count}
       />
-
       <Navegacion/>
-
       <Vite
         count={count}
         setCount={setCount}
       />
-      
+      <Main/>    
+      <Footer/>
     </>
   )
 }
