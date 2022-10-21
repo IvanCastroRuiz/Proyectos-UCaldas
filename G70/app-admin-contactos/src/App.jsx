@@ -16,6 +16,7 @@ function App() {
   return (
     // <> Fragment lo utilizamos para agrupar varias etiquetas HTML no ve en el navegador  
     <>
+     {/* Atraves de los props podemos enviar de componente padre a hijos valores de variables y funciones como parametros  */}
       <Header
         count={count}
       />
