@@ -293,8 +293,8 @@ h1,h2,h3{
 .fooster{
     text-align: center;
     color: var(--primario);
-    font-size:large;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight:bold;
 }
 
 /* validacion del funcion formulario*/
@@ -315,8 +315,8 @@ h1,h2,h3{
     text-transform: uppercase;
 }
 
-/* Spinner */
 
+/* Spinner */
 .spinner {
     margin: 100px auto;
     width: 50px;

@@ -8,10 +8,11 @@ import './assets/css/normalize.css';
 import Header from './components/Header';
 import Navegacion from './components/Navegacion';
 import Main from './components/Main';
+import Footer from './components/Footer';
 
 function App() {
 
-  const saludo = "Aprendiendo ReactJS";
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -20,21 +21,17 @@ function App() {
 
       {/* props - Pasar informacion de componentes padres a hijos */}
       <Header
-         saludo={saludo} 
+         count={count} 
+         setCount={setCount}
       />   
-
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> 
 
       <Navegacion/>   
 
       <Main/> 
+
+      <Footer
+        reactLogo={reactLogo}      
+      />
 
     </div>
   )

@@ -1,65 +1,59 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 
 // componentes
 import Header from './components/Header';
+import Navegacion from './components/Navegacion';
+import Main from './components/Main';
+import Vite from './components/Vite';
+import Footer from './components/Footer';
 
-import './App.css'
+// Styles
+import './assets/css/index.css';
+import './assets/css/App.css';
+import './assets/css/normalize.css';
+import './assets/css/styles.css';
 
 function App() {
+  const [ contactos, setContactos ] = useState([]);
   const [count, setCount] = useState(0);
-  
   const [estado, setEstado] = useState(false);
-
   let saludo = "Hola Mundo ReactJS";
 
-
-  const handleSubmit = (e) => {
-    //e.preventDefault();
-    console.log("Saludos");
-    setEstado(!estado);
-  };
+  // Se lo asignamos a un avariable
+  // useEffect( () =>{
+  //   console.log("Cambio count de estado");
+  // }, [count]);
+  
+  // Se lo asignamos a un components
+  useEffect( () =>{
+    setContactos((JSON.parse( localStorage.getItem('contactos') )) );
+    console.log(contactos);
+  }, []);
 
   return (
-    <div className="App">
-
+    <>
       <Header/>
-
-      <button
-        onClick={handleSubmit}
-      >
-        Saludar
-      </button>
-      <div>
-        {
-          estado 
-                ?
-                  <div><strong>{saludo}</strong></div>
-                :
-                "No hay saludo"
-        }
+      <Navegacion />
+      <div >
+        <Main 
+          contactos={contactos}
+          setContactos={setContactos}
+          className="contenedor sombra"
+        />
+        <Vite
+          className="contenedor sombra"
+          count={count}
+          setCount={setCount}
+          estado={estado}
+          setEstado={setEstado}   
+          saludo={saludo}   
+        />
       </div>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+      <Footer
+        reactLogo={reactLogo}
+      />
+    </>
   )
 }
 
