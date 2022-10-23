@@ -1,0 +1,32 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
+
+// Layout
+import Layout from './Layout/Layout';
+
+// Pages
+import Main from './pages/Main';
+import Vite from './pages/Vite';
+
+function App() {
+  
+  return (
+    <BrowserRouter>
+         {/* Rutas Publicas */}
+        <Routes>
+            <Route path='/' element={<Layout/>}>
+              <Route index element={<Vite/>}/>
+              <Route path='contacto' element={<Main/>}/>
+            </Route>  
+        </Routes>   
+
+        {/* Rutas Protegidas */}
+
+    </BrowserRouter>
+  )
+}
+
+export default App
