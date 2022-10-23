@@ -23,7 +23,8 @@ function App() {
         <Routes>
             <Route path='/' element={<Layout/>}>
               <Route index element={<Vite/>}/>
-              <Route path='contacto' element={<Main/>}/>
+              <Route path='productos' element={<Main/>}/>
+              <Route path='contactos' element={<Main/>}/>
             </Route>  
         </Routes>   
 

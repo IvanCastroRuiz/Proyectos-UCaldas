@@ -3,9 +3,9 @@ import React from 'react'
 const Main = () => {
   
   return (
-    <main main-edicion className="contenedor sombra">
+    <main className="contenedor sombra">
         <section id="form-contacto">   
-          <form action className="formulario">
+          <form className="formulario">
             <fieldset>
               <legend>Contactenos llenado todos los campos</legend>
               <div className="contenedor-campos">
