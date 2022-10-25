@@ -82,7 +82,6 @@ const Main = () => {
                     name="mensaje" 
                     className="input-text" 
                     placeholder="Tu mensaje" 
-                    defaultValue={""} 
                     value={mensaje}
                     onChange={e => setMensaje(e.target.value) }
                   />

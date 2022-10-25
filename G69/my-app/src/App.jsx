@@ -27,7 +27,8 @@ function App() {
   
   // Se lo asignamos a un components
   useEffect( () =>{
-    setContactos((JSON.parse( localStorage.getItem('contactos') )) );
+    // setContactos((JSON.parse( localStorage.getItem('contactos') )) );
+    console.log(JSON.parse( localStorage.getItem('contactos')));
     console.log(contactos);
   }, []);
 
