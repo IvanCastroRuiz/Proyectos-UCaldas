@@ -11,6 +11,27 @@ const Main = () => {
 
   const [ alerta, setAlerta] = useState({});
 
+  const [ contactos, setContactos] = useState(
+      localStorage.getItem("contactos") 
+      ? 
+        JSON.parse(localStorage.getItem("contactos")) 
+      : 
+        []
+  );
+
+  const sincronizarLocalStorage = (contactos) =>{
+    console.log(contactos);
+    setContactos(contactos.push({
+        nombre,
+        telefono,
+        correo,
+        mensaje
+      }));
+
+    localStorage.setItem('contactos', JSON.stringify(contactos));
+
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -25,7 +46,10 @@ const Main = () => {
     // Paso la validacion
     setAlerta({
       msg : "Informacion enviada de manera exitosa"
-    })
+    });
+
+    sincronizarLocalStorage(contactos);
+
   };
   
   const { msg } = alerta;

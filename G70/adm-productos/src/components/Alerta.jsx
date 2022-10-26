@@ -1,7 +1,5 @@
 import React from 'react'
 
-//<p  >{msg}</p>
-
 const Alerta = ({alerta, setAlerta}) => {
 
   setTimeout(() => {
