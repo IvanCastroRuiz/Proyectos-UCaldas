@@ -11,7 +11,9 @@ const Layout = () => {
       <Header/>
       <Navegacion/>
       {/* Cambia segun la navegacion */}
-      <Outlet/>
+      <main className="contenedor sombra">
+        <Outlet/>
+      </main>  
       <Footer/>
     </>
   )

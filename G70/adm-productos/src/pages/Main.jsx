@@ -11,7 +11,13 @@ const Main = () => {
 
   const [ alerta, setAlerta] = useState({});
 
-  const [ contactos, setContactos] = useState([]);
+  const [ contactos, setContactos] = useState(
+    localStorage.getItem('contactos') 
+      ?
+        JSON.parse(localStorage.getItem("contactos"))
+      :
+      []
+  );
 
   const sincronizarLocalStorage = (contactos) =>{
     console.log(contactos);
@@ -48,12 +54,17 @@ const Main = () => {
 
     sincronizarLocalStorage(contactos);
 
+    setNombre("");
+    setTelefono("");
+    setCorreo("");
+    setMensaje("");
+
   };
   
   const { msg } = alerta;
 
   return (
-    <main className="contenedor sombra">
+    
         <section id="form-contacto">   
           <form 
             id='form-contacto'
@@ -133,7 +144,7 @@ const Main = () => {
             {/*  */}
           </form>
         </section>
-    </main>
+
   )
 }
 

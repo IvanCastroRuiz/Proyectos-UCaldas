@@ -10,6 +10,7 @@ import Layout from './Layout/Layout';
 // Pages
 import Main from './pages/Main';
 import Vite from './pages/Vite';
+import ListaProductos from './pages/ListaProductos';
 
 // Styles
 import './assets/css/normalize.css';
@@ -23,7 +24,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Layout/>}>
               <Route index element={<Vite/>}/>
-              <Route path='productos' element={<Main/>}/>
+              <Route path='productos' element={<ListaProductos/>}/>
               <Route path='contactos' element={<Main/>}/>
             </Route>  
         </Routes>   
