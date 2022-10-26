@@ -5,7 +5,6 @@ import Alerta from '../components/Alerta';
 const Formulario = ({contactos,setContactos}) => {
 
   const [ alerta, setAlerta ] = useState({});
-  
   const [ nombre, setNombre ] = useState(""); 
   const [ telefono, setTelefono ] = useState(""); 
   const [ correo, setCorreo ] = useState(""); 
@@ -14,16 +13,21 @@ const Formulario = ({contactos,setContactos}) => {
   // Validar los datos
 
   const sincronizarStorage = (contactos) => {
-    setContactos(contactos.push({
-        nombre,
-        telefono,
-        correo,
-        mensaje
-    }));
 
+    let datos = {
+        "nombre": nombre,
+        "telefono":telefono,
+        "correo":telefono,
+        "mensaje":telefono
+
+    };
+
+    contactos.push(datos);
     localStorage.setItem('contactos', JSON.stringify(contactos));
-
-};  
+    if(contactos){
+        setContactos(contactos);
+    }
+  };  
 
 
   const handleSubmit = (e) => {
@@ -31,7 +35,6 @@ const Formulario = ({contactos,setContactos}) => {
         //console.log(e.target.id);
 
         // Validacion
-
         if([nombre,telefono,correo,mensaje].includes("")){
             setAlerta({
                 msg: "Todos los campos son obligatorios",
@@ -46,6 +49,11 @@ const Formulario = ({contactos,setContactos}) => {
         });
 
         sincronizarStorage(contactos);
+
+        setNombre("");
+        setTelefono("");
+        setCorreo("");
+        setMensaje("");
   };
 
   const { msg } = alerta;

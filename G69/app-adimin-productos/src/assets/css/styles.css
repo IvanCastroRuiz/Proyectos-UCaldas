@@ -1,4 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*Selectores mas generales*/
+
 :root{
     --blanco:#ffffff;
     --oscuro:#212121;

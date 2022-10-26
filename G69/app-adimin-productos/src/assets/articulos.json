@@ -1,0 +1,25 @@
+{
+    "articulos": [
+        {
+            "id": 1,
+            "nombre": "Cafe local",
+            "description": "El mejor cafe del mundo el colombiano",
+            "precio": 5000,
+            "url": ""
+        },
+        {
+            "id": 2,
+            "nombre": "Azucar local",
+            "description": "De Cali la mejor",
+            "precio": 2500,
+            "url": ""
+        },
+        {
+            "id": 3,
+            "nombre": "Arroz local",
+            "description": "De Cali la mejor",
+            "precio": 3500,
+            "url": ""
+        }
+    ]
+}

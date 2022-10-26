@@ -28,7 +28,6 @@ const listarApi = (id, nombre, descripcion, url, precio) => {
                                     };
 
 const consultarApi = async () =>{
-
     try {
 
         let respuesta =  await fetch("https://whispering-wildwood-03076.herokuapp.com/guitarras");
