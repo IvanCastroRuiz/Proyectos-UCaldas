@@ -1,0 +1,19 @@
+{
+    "articulos": [
+        {
+            "id": 1,
+            "nombre": "Cafe Colombiano el mejor 1lb",
+            "precio": 5000,
+            "description": "café es 100% Arábica. Dentro de esta especie, existen numerosas variedades que se producen según las características de cada región o departamento. El cultivo de café ha pasado en los últimos años a ser uno de los motores económicos del país.",
+            "url": "/src/assets/img/cafe.jfif"
+        },
+        {
+            "id": 2,
+            "nombre": "Arroz Riopaila 1lb",
+            "precio": 2500,
+            "description": "Se destacan el Arborio o el Vialone Nano, siendo el primero el más utilizado para los platos nombrados.",
+            "url": "/src/assets/img/arroz.jfif"
+        }
+    ]
+
+}

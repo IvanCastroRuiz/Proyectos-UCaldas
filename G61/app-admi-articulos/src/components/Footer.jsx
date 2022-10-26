@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Footer = ({reactLogo}) => {
-
+  
+    console.log(reactLogo);
 
   return (
     <footer className="fooster">

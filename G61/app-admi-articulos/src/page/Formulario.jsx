@@ -1,24 +1,43 @@
 import {React,useState} from 'react'
 
 import Alerta from '../components/Alerta';
+import Spinner from '../components/Spinner';
 
 const Formulario = () => {
 
  // Hooks useState
- const [spinner, setSpinner] = useState(false);
- const [alerta, setAlerta] = useState({});
+    const [spinner, setSpinner] = useState(false);
+    const [alerta, setAlerta] = useState({});
 
- const [nombre, setNombre] = useState("");
- const [telefono, setTelefono] = useState("");
- const [correo, setCorreo] = useState("");
- const [mensaje, setMensaje] = useState("");
+    const [nombre, setNombre] = useState("");
+    const [telefono, setTelefono] = useState("");
+    const [correo, setCorreo] = useState("");
+    const [mensaje, setMensaje] = useState("");
 
-  const mostrarSpinner = () => {
-    setSpinner(true);
-    setTimeout(() => {
-    setSpinner(false);
-    }, 3000);
-  };
+    const [ contactos, setContactos] = useState(
+        localStorage.getItem("contactos")
+                    ?
+                        JSON.parse(localStorage.getItem("contactos"))
+                    :
+                        []
+    );
+
+  const sincronizarStorage = (contactos) => {
+
+    const datos = {
+        "nombre": nombre,
+        "telefono": telefono,
+        "correo": correo,
+        "mensaje": mensaje
+    }
+
+    contactos.push(datos);
+    localStorage.setItem("contactos", JSON.stringify(contactos))
+    if(contactos){
+      setContactos(contactos)
+    }
+
+  };      
 
   const handleSubmit = (e) => {
        e.preventDefault();
@@ -34,10 +53,18 @@ const Formulario = () => {
        };
 
        // Paso la validacion
-       mostrarSpinner();
+       setSpinner(true);
        setAlerta({
             msg :"Su informacion fue registrada con exito"
        });
+
+       sincronizarStorage(contactos);
+
+       // Resetear los campos del contacto
+       setNombre("");
+       setTelefono("");
+       setCorreo("");
+       setMensaje("");
 
   };  
   
@@ -106,16 +133,11 @@ const Formulario = () => {
                             {/* Operador Ternerio */}
                             {
                                 spinner 
-                                    ?
-                                        <div className="spinner">
-                                            <div className="rect1"></div>
-                                            <div className="rect2"></div>
-                                            <div className="rect3"></div>
-                                            <div className="rect4"></div>
-                                            <div className="rect5"></div>
-                                        </div>
-                                    :
-                                    <div></div>
+                                    &&
+                                        <Spinner
+                                            spinner={spinner}
+                                            setSpinner={setSpinner}
+                                        />
                             }     
                     
                         </div>

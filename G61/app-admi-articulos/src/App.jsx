@@ -20,8 +20,6 @@ import reactLogo from './assets/react.svg';
 
 
 function App() {
-  
-
   return (
     <BrowserRouter>
       {/* Rutas Publicas */}
@@ -32,6 +30,7 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="contacto" element={<Formulario/>}/>
           <Route path="lista-articulo" element={<ListaArticulos/>}/>
+          {/* <Route path="articulo:id" element={<EditarArticulo/>}/> */}
         </Route>
       </Routes>    
     </BrowserRouter>
