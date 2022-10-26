@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Alerta from '../components/Alerta';
 
@@ -11,25 +11,23 @@ const Main = () => {
 
   const [ alerta, setAlerta] = useState({});
 
-  const [ contactos, setContactos] = useState(
-      localStorage.getItem("contactos") 
-      ? 
-        JSON.parse(localStorage.getItem("contactos")) 
-      : 
-        []
-  );
+  const [ contactos, setContactos] = useState([]);
 
   const sincronizarLocalStorage = (contactos) =>{
     console.log(contactos);
-    setContactos(contactos.push({
-        nombre,
-        telefono,
-        correo,
-        mensaje
-      }));
+    const datos = {
+      "nombre": nombre,
+      "telefono": telefono,
+      "correo": correo,
+      "mensaje": mensaje
+    };   
 
-    localStorage.setItem('contactos', JSON.stringify(contactos));
+    contactos.push(datos) 
 
+    localStorage.setItem("contactos", JSON.stringify(contactos))
+    if(contactos){
+      setContactos(contactos)
+    }
   };
 
   const handleSubmit = (e) => {
