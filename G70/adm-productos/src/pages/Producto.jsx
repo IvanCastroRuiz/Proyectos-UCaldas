@@ -11,7 +11,7 @@ const Producto = ({producto}) => {
           <strong>{ nombre } </strong>
       </h3>
       <div>
-        <img src={imagen.url} alt={nombre}/>
+        <img layout='responsive' width="100" height="220" src={imagen.url} alt={nombre}/>
         <h4>Precio: $ { " " }  { precio } </h4>
       </div>
       <div>

@@ -20,7 +20,7 @@ const ListaProductos = () => {
   },[]);   
 
   return (
-    <div>
+    <div className="listado">
         
         <h1>Lista Productos</h1>
 

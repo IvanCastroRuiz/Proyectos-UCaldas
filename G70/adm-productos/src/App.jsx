@@ -14,8 +14,10 @@ import ListaProductos from './pages/ListaProductos';
 import DetalleProducto from './pages/DetalleProducto';
 
 // Styles
-import './assets/css/normalize.css';
-import './assets/css/styles.css';
+import '../src/assets/css/normalize.css';
+import '../src/assets/css/styles.css';
+import '../src/assets/css/Articulo.module.css';
+import '../src/assets/css/App.css'
 
 function App() {
   

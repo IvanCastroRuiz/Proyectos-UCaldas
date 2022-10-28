@@ -26,33 +26,33 @@ const DetalleProducto = () => {
   return (
     <>
     {
-      producto._id 
+            _id 
                 ?
-                <div>
-                    
-                    <h3>
-                        <strong>{ nombre } </strong>
-                    </h3>
-                    <div>
-                      <img src={imagen.url} alt={nombre}/>
-                      <h4>Precio: $ { " " }  { precio } </h4>
-                      <p>
-                        { descripcion }
-                      </p>
-                    </div>                  
+                  <div>
+                      
+                      <h3>
+                          <strong>{ nombre } </strong>
+                      </h3>
+                      <div>
+                        <img layout='responsive' width="100" height="220" src={imagen.url} alt={nombre}/>
+                        <h4>Precio: $ { " " }  { precio } </h4>
+                        <p>
+                          { descripcion }
+                        </p>
+                      </div>                  
 
-                    <div>
-                        <Link
-                            to="/productos"
-                        >
-                            Regresa a Listado de Productos
-                        </Link>
-                    </div>
-                </div> 
+                      <div>
+                          <Link
+                              to="/productos"
+                          >
+                              Regresa a Listado de Productos
+                          </Link>
+                      </div>
+                  </div> 
                 :
-                <p>
-                  No hay informacion del producto, intentanuevamente.
-                </p>      
+                  <p>
+                    No hay informacion del producto, intentanuevamente.
+                  </p>      
     }
     </>
   )
