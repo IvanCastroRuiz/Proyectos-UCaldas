@@ -13,7 +13,6 @@ const DetalleProducto = () => {
                 Regresa a Listado de Productos
             </Link>
         </div>
-
     </div>
   )
 }
