@@ -1,8 +1,10 @@
-import { useState, useEffect }  from 'react'
+import { useState, useEffect }  from 'react';
+
+import Producto from './Producto';
 
 const ListaProductos = () => {
 
-  const [ consulta, setConsulta ] = useState({});
+  const [ consulta, setConsulta ] = useState([]);
 
   useEffect( () => {
     const consultarApi = async () => {
@@ -15,18 +17,22 @@ const ListaProductos = () => {
         }
     };
     consultarApi();
-  },[]);  
- 
+  },[]);   
 
   return (
     <div>
         
-        ListaProductos
+        <h1>Lista Productos</h1>
 
         {
             consulta.length > 0 
                         ?
-                            <p>Dibujar los productos</p>
+                            consulta.map( (producto) => (
+                                <Producto
+                                  key={producto._id}
+                                  producto={producto}
+                                />
+                            ))
                         :
                             <p>No hay productos</p>
         }
