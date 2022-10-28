@@ -14,9 +14,11 @@ import Home from './pages/Home';
 import Vite from './pages/Vite';
 import Main from './pages/Main';
 import ListaProductos from './pages/ListaProductos';
+import DetalleArticulo from './pages/DetalleArticulo';
 
 // Styles
 import './assets/css/App.css';
+// import './assets/css/index.css';
 import './assets/css/normalize.css';
 import './assets/css/styles.css';
 import reactLogo from './assets/react.svg';
@@ -44,6 +46,7 @@ function App() {
                                     />}/>
           <Route path="contacto" element={<Main/>}/>
           <Route path="lista-articulo" element={<ListaProductos/>}/>
+          <Route path="detalle-articulo/:id" element={<DetalleArticulo/>}/>
         </Route>
       </Routes>  
       {/* Rutas Protegidas */}

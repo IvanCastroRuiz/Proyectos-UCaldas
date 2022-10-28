@@ -11,6 +11,7 @@ import LayoutPublic from './Layout/LayoutPublic';
 import Home from './page/Home';
 import Formulario from './page/Formulario';
 import ListaArticulos from './page/ListaArticulos';
+import DetalleArticulo from './page/DetalleArticulo';
 
 // Styles
 import './assets/css/styles.css';
@@ -30,9 +31,10 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="contacto" element={<Formulario/>}/>
           <Route path="lista-articulo" element={<ListaArticulos/>}/>
-          {/* <Route path="articulo:id" element={<EditarArticulo/>}/> */}
+          <Route path="detalle-articulo/:id" element={<DetalleArticulo/>}/>
         </Route>
       </Routes>    
+      {/* Rutas Protegidas */}
     </BrowserRouter>
   )
 }

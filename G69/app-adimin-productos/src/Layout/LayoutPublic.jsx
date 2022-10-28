@@ -10,13 +10,12 @@ const LayoutPublic = ({reactLogo}) => {
     <>
       <Header/>
       <Navegacion/>
-
+      <main className="contenedor sombra">
         <Outlet/>
-
+      </main>  
       <Footer
         reactLogo={reactLogo}
       />
-
     </>
   )
 }

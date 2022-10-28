@@ -9,7 +9,11 @@ const Header = ({count, setCount}) => {
   return (
     <> 
       <header>
-        <h1 className="titulo">UCaldas G61 <span>Desarrollo WEB</span>
+        <h1 className="titulo">
+          Administracion Productos <span>Desarrollo WEB</span>
+          <div>
+            <span>Universidad de Caldas</span>
+          </div>
         <div>
           <div>
             <button
