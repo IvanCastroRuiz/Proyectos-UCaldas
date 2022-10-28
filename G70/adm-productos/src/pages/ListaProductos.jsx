@@ -16,7 +16,6 @@ const ListaProductos = () => {
     };
     consultarApi();
   },[]);  
-
  
 
   return (
