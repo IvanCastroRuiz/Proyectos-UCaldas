@@ -1,0 +1,68 @@
+{
+    "factura": [
+                {
+                    "id": "1",
+                    "idUser":"72009461",
+                    "articulos": [ 
+                            {
+                                "articulo":{ 
+                                                "id":"A1",
+                                                "nombre":"arroz",
+                                                "precio": 1500
+                                            },
+                                "cantidad":2
+                            },
+                            {
+                                "articulo":{ 
+                                                "id":"A4",
+                                                "nombre":"cafe",
+                                                "precio": 5500
+                                            },
+                                "cantidad":3
+                            },
+                            {
+                                "articulo":{ 
+                                                "id":"A6",
+                                                "nombre":"leche",
+                                                "precio": 2500
+                                            },
+                                "cantidad":1
+                            }
+                     ],
+                     "fecha": "04-11-2022",
+                     "confirnado": false
+                },
+                {
+                    "id": "2",
+                    "idUser":"4578522",
+                    "articulos": [ 
+                                {
+                                    "articulo":{ 
+                                                    "id":"A1",
+                                                    "nombre":"aceite",
+                                                    "precio": 2200
+                                                },
+                                    "cantidad":4
+                                },
+                                {
+                                    "articulo":{ 
+                                                    "id":"A4",
+                                                    "nombre":"cafe",
+                                                    "precio": 5500
+                                                },
+                                    "cantidad":1
+                                },
+                                {
+                                    "articulo":{ 
+                                                    "id":"A6",
+                                                    "nombre":"azucar",
+                                                    "precio": 2500
+                                                },
+                                    "cantidad":2
+                                }
+                    ],
+                    "fecha": "04-11-2022",
+                    "confirnado": false
+                }
+               ]
+}

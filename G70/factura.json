@@ -1,0 +1,68 @@
+{
+    "factura":[
+                {   
+                    "id": 1,
+                    "articulo":[
+                        {
+                            "inf": {
+                                "id":"jhgjahksghjka",
+                                "nombre": "PC HP 32 pulgadas",
+                                "precio": 2000000,
+                                "descripcion": "lorem"
+                            },
+                            "cantidad":2
+                        },
+                        {
+                            "inf": {
+                                "id":"ytrfytu",
+                                "nombre": "TV LG 42 pulgadas",
+                                "precio": 150000,
+                                "descripcion": "lorem"
+                            },
+                            "cantidad":1
+                        }
+                    ],                
+                    "fecha": "2020-11-05",
+                    "idCliente": "1",
+                    "estado": false,
+                    "total": 5500000
+                },
+                {   
+                    "id": 2,
+                    "articulo":[
+                        {
+                            "inf": {
+                                "id":"kjhgjkgkhjds",
+                                "nombre": "Jean azul talla 44",
+                                "precio": 50000,
+                                "descripcion": "lorem"
+                            },
+                            "cantidad":6
+                        },
+                        {
+                            "inf": {
+                                "id":"ytgajjhag",
+                                "nombre": "Camisa polo",
+                                "precio": 15000,
+                                "descripcion": "lorem"
+                            },
+                            "cantidad":8
+                        },
+                        {
+                            "inf": {
+                                "id":"igjasdgh",
+                                "nombre": "Adidas 43",
+                                "precio": 150000,
+                                "descripcion": "lorem"
+                            },
+                            "cantidad":3
+                        }
+
+                    ],                
+                    "fecha": "2020-11-05",
+                    "idCliente": "1",
+                    "estado": false,
+                    "total": 5500000
+                }
+            ]
+}
