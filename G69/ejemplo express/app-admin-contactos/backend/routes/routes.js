@@ -8,7 +8,6 @@ import {
 
 const router = express.Router();
 
-
 router.get('/', home);
 router.get('/saludo', saludo);
 router.get('/lado-cuadrado/:numero', ladoCuadrado);

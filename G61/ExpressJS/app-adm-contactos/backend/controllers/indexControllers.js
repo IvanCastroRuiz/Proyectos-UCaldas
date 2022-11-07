@@ -29,7 +29,9 @@ const tablaMulti = (req, res) =>{
 const contacto = (req, res) =>{
     const contacto = req.body;
     console.log(contacto);
-    return
+    res.json({
+        msg:"Mensaje enviado al administrador, pronto lo contactaremos"
+    });
 };
 
 export {
