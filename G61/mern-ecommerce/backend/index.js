@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import conectarDB from './config/db.js';
 import usuarioRoutes from './routes/usuarioRoutes.js';
+import productoRoutes from './routes/productoRoutes.js';
+import ventaRoutes from './routes/ventaRoutes.js';
 
 const PORT = process.env.PORT || 4000;
 
@@ -30,7 +32,12 @@ conectarDB();
 };
 app.use(cors(corsOptions));*/
 
+//Gestion de Usuarios
 app.use('/api/usuarios', usuarioRoutes);
+//Gestion de Productos
+app.use('/api/productos', productoRoutes);
+//Gestion de Ventas
+app.use('/api/ventas', ventaRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en el puerto ${PORT} `);
