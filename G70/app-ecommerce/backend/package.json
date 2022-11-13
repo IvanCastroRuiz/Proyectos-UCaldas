@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "description": "App Ecommerce G70",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "author": "Grupo 70 UCaldas Mision Tic 2022 C4A",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
