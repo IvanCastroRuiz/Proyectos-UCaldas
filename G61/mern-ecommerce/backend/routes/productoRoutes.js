@@ -1,8 +1,8 @@
 import express from 'express';
 import {
     prueba,
-    // deleteProductos,
-    // getProducto,
+    deleteProductos,
+    getProducto,
     getProductos,
     createProductos,
     updateProductos
@@ -14,11 +14,11 @@ const router = express.Router();
 router.get('/prueba', prueba);
 
 // Rutas Gestión Producto
-router.post('/producto', createProductos);
-router.get('/productos', getProductos);
-// router.get('/productos/:id', getProducto);
-router.put('/productos/:id', updateProductos);
-// router.delete('/productos/:id', deleteProductos);
+router.post('/create', createProductos);
+router.get('/get', getProductos);
+router.get('/get/:id', getProducto);
+router.put('/update/:id', updateProductos);
+router.delete('/productos/:id', deleteProductos);
 
 
 export default router;
