@@ -2,6 +2,8 @@
 import express from "express";
 import dotenv from 'dotenv';
 import cors from 'cors';
+import fileupload from "express-fileupload";
+
 import conectarDB from './config/db.js';
 import usuarioRoutes from './routes/usuarioRoutes.js';
 import productoRoutes from './routes/productoRoutes.js';
@@ -14,6 +16,11 @@ const PORT = process.env.PORT || 4000;
 // Se le agrega toda la funcionalidad del servidor de express
 const app = express();
 app.use(express.json());
+
+app.use(fileupload({
+    useTempFiles: true,
+    tempFileDir: './files'
+}))
 
 conectarDB();
 // middlewares

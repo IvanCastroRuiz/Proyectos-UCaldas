@@ -46,8 +46,8 @@ const createProductos = async (req, res) => {
 const getProducto = async (req, res) => {
     try {
 
-        const OneProduct = await Producto.findById(req.params.id); 
-        
+        const OneProduct = await Producto.findById(req.params.id);
+
         if (!OneProduct) {
             return res.sendStatus(404);
         } else {
@@ -63,7 +63,6 @@ const getProductos = async (req, res) => {
     try {
 
         const productos = await Producto.find();
-
         res.send(productos);
 
     } catch (error) {
@@ -74,25 +73,50 @@ const getProductos = async (req, res) => {
 
 const updateProductos = async (req, res) => {
 
+    const { id } = req.params;
+    const { nombre, description, precio, stock } = req.body;
+
+    //console.log(id, nombre, description, precio, stock);
+    //console.log(req.files.image);
     try {
-        const updatedProduct = await Producto.findByIdAndUpdate(req.params.id,
-            req.body,
-            {
-                new: true,
+
+        const updateProducto = await Producto.findById(id);
+
+        updateProducto.nombre = nombre;
+        updateProducto.description = description;
+        updateProducto.precio = precio;
+        updateProducto.stock = stock;
+
+        console.log(req.files);
+        
+        if(req.files !== null){
+            if (req.files.image) {
+                await deleteImage(updateProducto.image.public_id);
+                const result = await uploadImage(req.files.image.tempFilePath);
+                await fs.remove(req.files.image.tempFilePath);
+    
+                updateProducto.image = {
+                    url: result.secure_url,
+                    public_id: result.public_id,
+                };
             }
-        );
+        }       
 
-        return res.send(updatedProduct);
+        await updateProducto.save();
 
+        console.log(updateProducto);
+
+        return res.status(200).json(updateProducto);
     } catch (error) {
-        return res.status(500).json({ message: error.message });
+        console.log(error.message);
     }
+
 };
 
 const deleteProductos = async (req, res) => {
     try {
-        const productRemoved = await Producto.findByIdAndDelete(req.params.id); 
-        
+        const productRemoved = await Producto.findByIdAndDelete(req.params.id);
+
         if (!productRemoved) {
             // const error = new Error("Token no valido");
             return res.sendStatus(404);
@@ -100,7 +124,7 @@ const deleteProductos = async (req, res) => {
             if (productRemoved.image.public_id) {
                 await deleteImage(productRemoved.image.public_id);
             }
-            
+
             return res.sendStatus(204);
         }
 

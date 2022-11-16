@@ -14,6 +14,14 @@ const ventaShema = mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        total: {
+            type: Number,
+            required: true
+        },
+        estado: {
+            type: String,
+            default: 'vigente',
+        },
     },
     {
         timestamps: true,
