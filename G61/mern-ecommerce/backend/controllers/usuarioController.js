@@ -68,8 +68,6 @@ const confirmar = async (req, res) => {
     }
 };
 
-
-
 export {
     prueba,
     registrar,
