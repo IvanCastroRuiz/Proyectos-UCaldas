@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const productoSchema = new mongoose.Schema({
     nombre: {
-        type: 'string',
+        type: String,
         required: true,
         trim: true
     },
