@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import Alerta from '../../components/Alerta';
 import clienteAxios from '../../config/axios';
 import imagenConfirmar from '../../assets/imagen-confirmacion.png'
+
 const Confirmar = () => {
     
     const [cuentaConfirmada, setCuentaConfirmada] = useState(false);
