@@ -15,7 +15,7 @@ const ventaShema = mongoose.Schema(
             default: false,
         },
         total: {
-            type: Numbers,
+            type: Number,
             required: true
         },
         estado: {
