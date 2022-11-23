@@ -8,7 +8,6 @@ const prueba = (req, res) => {
 };
 
 // La logica por cada peticion que se recibe.
-
 const registrar = async (req, res) => {
 
     const { nombre, email } = req.body;
