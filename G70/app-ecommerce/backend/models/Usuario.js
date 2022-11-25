@@ -52,6 +52,7 @@ const usuarioShema = mongoose.Schema({
 // Antes de guardar el usuario Hashear el password
 // https://www.npmjs.com/package/bcryptjs
 // https://www.npmjs.com/package/bcrypt
+
 usuarioShema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         next();
@@ -59,6 +60,7 @@ usuarioShema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
 });
+
 // Confirmar password del usuario, esta funcion devuelve verdadero o falso
 usuarioShema.methods.comprobarPassword = async function (passwordFormulario) {
     return await bcrypt.compare(passwordFormulario, this.password);
